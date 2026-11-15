@@ -1,0 +1,183 @@
+configuration {
+    display-drun: " ";
+    font: "Iosevka Term 11";
+    show-icons: true;
+    drun-match-fields: "name,generic,comment,exec,keywords";
+    drun-display-format: "{name}\n<span size='small' alpha='60%'>{comment}</span>";
+}
+
+entry {
+    placeholder: "Search...";
+    placeholder-color: rgba(237, 237, 237, 0.45);
+    cursor: "text";
+}
+
+* {
+    background:                  rgba(39, 50, 56, 0.0);
+    foreground:                  rgb(237, 237, 237);
+
+    selected-normal-foreground:  rgba(255, 255, 255, 1.0);
+    normal-foreground:           @foreground;
+    selected-urgent-foreground:  rgba(255, 24, 68, 1.0);
+    urgent-foreground:           rgba(255, 24, 68, 1.0);
+    active-foreground:           rgba(128, 203, 196, 1.0);
+    selected-active-foreground:  rgba(128, 203, 196, 1.0);
+
+    selected-normal-background:  rgba(255, 255, 255, 0.08);
+    selected-urgent-background:  rgba(57, 66, 73, 0.8);
+
+    separatorcolor:              rgba(30, 37, 41, 0);
+}
+
+window {
+    width: 500px;
+    transparency: "real";
+    background-color: #000000;
+    border-color: #1f1f1f;
+    border: 2px;
+    padding: 5px;
+    border-radius: 25px;
+
+    location: north;
+    anchor: north;
+    x-offset: 0px;
+    y-offset: -27px;
+}
+
+mainbox {
+    border: 0;
+    padding: 0;
+    spacing: 0;
+    children: [ inputbar, listview ];
+}
+
+textbox {
+    text-color: @foreground;
+}
+
+prompt {
+    vertical-align: 0.5;
+    text-color: rgba(255, 255, 255, 0.85);
+}
+
+listview {
+    lines: 15;
+    fixed-height: false;
+    scrollbar: false;
+    spacing: 3px;
+    padding: 2px;
+    cycle: true;
+}
+
+element-icon {
+    size: 22px;
+    cursor: pointer;
+}
+
+element {
+    border: 0;
+    padding: 13px;
+    spacing: 15px;
+    background-color: transparent;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.3;
+    highlight: none;
+    padding: 5px 0px 5px 0px;
+}
+
+element-text.selected {
+    highlight: bold;
+}
+
+element.normal.normal {
+    background-color: transparent;
+    text-color: @normal-foreground;
+}
+
+element.normal.urgent {
+    background-color: transparent;
+    text-color: @urgent-foreground;
+}
+
+element.normal.active {
+    background-color: transparent;
+    text-color: @active-foreground;
+}
+
+element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+}
+
+element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color: @selected-urgent-foreground;
+}
+
+element.selected.active {
+    background-color: @selected-normal-background;
+    text-color: @foreground;
+}
+
+element.alternate.normal {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element.alternate.urgent {
+    background-color: transparent;
+    text-color: @urgent-foreground;
+}
+
+element.alternate.active {
+    background-color: transparent;
+    text-color: @active-foreground;
+}
+
+button {
+    cursor: pointer;
+    padding: 8px;
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+button.selected {
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+}
+
+inputbar {
+    spacing: 5px;
+    text-color: @normal-foreground;
+    padding: 12px;
+    background-color: transparent;
+    children: [ prompt, textbox-prompt-colon, entry, case-indicator ];
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: "";
+    margin: 0px 0.3em 0em 0em;
+    text-color: @normal-foreground;
+}
+
+case-indicator {
+    text-color: rgba(237, 237, 237, 0.65);
+    spacing: 0;
+}
+
+message {
+    padding: 10px;
+    border: 0;
+    background-color: transparent;
+}
+
+textbox-message {
+    text-color: rgba(237, 237, 237, 0.7);
+}
